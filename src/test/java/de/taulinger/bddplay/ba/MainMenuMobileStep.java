@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Given;
 import static org.junit.Assert.assertEquals;
 
-public class MainMenueDesktopStep extends BasicStep {
+public class MainMenuMobileStep extends BasicStep {
 
     @After
     @Override
@@ -16,20 +16,19 @@ public class MainMenueDesktopStep extends BasicStep {
         super.after();
     }
 
-    @Given("A menue for desktop usage")
-    public void bayern_atlas_which_contains_a_menue_for_desktop() {
+    @Given("A menu for mobile usage")
+    public void bayern_atlas_which_contains_a_menu_for_mobile() {
     }
 
-    @When("I load the page with {string} for desktop usage")
-    public void i_load_the_page_with_for_desktop(String browserType) {
-        setup(browserType, ClientType.Desktop);
+    @When("I load the page with {string} for mobile usage")
+    public void i_load_the_page_with_for_mobile(String browserType) {
+        setup(browserType, ClientType.Mobile);
         page.waitForLoadState(Page.LoadState.NETWORKIDLE);
     }
 
-    @Then("The main menue should show a button for desktop usage")
-    public void the_main_menue_should_show_a_button() {
+    @Then("The main menu should show a button for mobile usage")
+    public void the_main_menu_should_show_a_button() {
 //        page.screenshot(new Page.ScreenshotOptions().withPath(Paths.get("screenshot.png")));
-        assertEquals("Menü öffnen", page.innerText(".ga-visible-collapsed"));
-
+        assertEquals("Menü", page.innerText(".btn.ga-menu-bt.ng-scope"));
     }
 }
