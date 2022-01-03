@@ -10,7 +10,7 @@ import static java.util.stream.Collectors.joining;
  */
 public class BasicStep {
 
-    public static enum ClientType {
+    public enum ClientType {
         Desktop, Mobile
     }
 
@@ -88,11 +88,11 @@ public class BasicStep {
     }
 
     protected BrowserContext newDesktopBrowserContext() {
-        return browser.newContext(new Browser.NewContextOptions().withViewport(800, 600));
+        return browser.newContext(new Browser.NewContextOptions().setViewportSize(800, 600));
     }
 
     protected BrowserContext newMobileBrowserContext() {
-        return browser.newContext(new Browser.NewContextOptions().withViewport(375, 667).withDeviceScaleFactor(2));
+        return browser.newContext(new Browser.NewContextOptions().setViewportSize(375, 667).setDeviceScaleFactor(2));
     }
 
 }

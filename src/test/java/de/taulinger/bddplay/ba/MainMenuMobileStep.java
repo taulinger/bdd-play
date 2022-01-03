@@ -1,6 +1,7 @@
 package de.taulinger.bddplay.ba;
 
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.LoadState;
 import de.taulinger.bddplay.BasicStep;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Then;
@@ -23,7 +24,7 @@ public class MainMenuMobileStep extends BasicStep {
     @When("I load the page with {string} for mobile usage")
     public void i_load_the_page_with_for_mobile(String browserType) {
         setup(browserType, ClientType.Mobile);
-        page.waitForLoadState(Page.LoadState.NETWORKIDLE);
+        page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
     @Then("The main menu should show a button for mobile usage")
